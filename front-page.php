@@ -75,4 +75,59 @@ function get_page_url_or_redirect($slug) {
   </div>
 </section>
 
+<section class="section__container" id="services">
+    <h1 class="section__header">Mes services</h1>
+    <div class="services-list">
+      <div>
+        <h4>Développement web</h4>
+        <p>Création de sites modernes, rapides et optimisés pour une expérience fluide.</p>
+      </div>
+      <div>
+        <h4>Mise à niveau</h4>
+        <p>Amélioration des performances, du design et des fonctionnalités de votre site existant.</p>
+      </div>
+      <div>
+        <h4>Maintenance et support</h4>
+        <p>Assurer la sécurité, la mise à jour et le bon fonctionnement de votre site.</p>
+      </div>
+    </div>
+</section>
+
+<section class="section__container skill__container" id="skill">
+  <div class="skill__content">
+    <h2 class="section__header">
+      Pourquoi m'embaucher pour votre prochain <span>projet?</span>
+    </h2>
+    <p class="section__description">
+      Je privilégie la qualité, l’efficacité et l’attention aux détails pour garantir un résultat à la hauteur de vos attentes.
+    </p>
+    <div class="skill__btn">
+      <button class="btn" onclick="window.location.href='<?php echo esc_url(get_page_url_or_redirect('contact')); ?>'">Me Contacter</button>
+    </div>
+  </div>
+  <div class="skill__grid">
+    <div class="skill__card">
+      <span><i class="ri-pulse-line"></i></span>
+      <h4>Sens du détail</h4>
+      <p>
+        Toujours attentif à la qualité et aux finitions pour un travail soigné.
+      </p>
+    </div>
+    <div class="skill__card">
+      <span><i class="ri-pencil-ruler-2-line"></i></span>
+      <h4>Fiabilité et sérieux</h4>
+      <p>
+        Engagement total pour un travail bien fait et livré à temps.
+      </p>
+    </div>
+    <div class="skill__card">
+      <span><i class="ri-graduation-cap-line"></i></span>
+      <h4>Esprit d’initiative</h4>
+      <p>
+        Capable de prendre des décisions et de trouver des solutions adaptées.
+      </p>
+    </div>
+  </div>
+</section>
+
 <?php get_footer(); ?>
