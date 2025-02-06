@@ -4,8 +4,259 @@ Author: Karl-William Couturier
 Version: 0.1
 */
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --primary-color: #0db75f;
+  --primary-color-dark: #0c9a51;
+  --text-dark: #030712;
+  --text-light: #6b7280;
+  --extra-light: #d1d5db;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.section__header {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 3.25rem;
+  color: var(--text-dark);
+}
+
+.section__header span {
+  color: var(--primary-color);
+}
+
+.section__description {
+  color: var(--text-light);
+  line-height: 1.5rem;
+}
+
+.btn {
+  padding: calc(0.75rem + 2px) 1.5rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-dark);
+}
+
+img {
+  display: flex;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+html,
 body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+nav {
+  position: fixed;
+  isolation: isolate;
+  width: 100%;
+  z-index: 9;
+}
+
+.nav__header {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+}
+
+.nav__logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.nav__logo a span {
+  padding: 2px 10px;
+  color: var(--primary-color);
+  background-color: var(--white);
+  border-radius: 5px;
+}
+
+.nav__menu__btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav__links {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+  background-color: var(--primary-color);
+  transition: transform 0.5s;
+  z-index: -1;
+}
+
+.nav__links.open {
+  transform: translateY(100%);
+}
+
+.nav__links a {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.nav__btn {
+  display: none;
+}
+
+.header__container {
+  display: grid;
+  gap: 4rem 2rem;
+  overflow: hidden;
+}
+
+.header__image {
+  position: relative;
+  isolation: isolate;
+}
+
+.header__image img {
+  max-width: 350px;
+  margin-inline: auto;
+}
+
+.header__image::before,
+.header__image::after {
+  position: absolute;
+  content: "";
+  height: 80%;
+  width: 100%;
+  max-width: 400px;
+}
+
+.header__image::before {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-color);
+  z-index: -2;
+}
+
+.header__image::after {
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(calc(-50% - 3rem));
+  border: 5px solid var(--text-dark);
+  opacity: 0.75;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.header__content h1 {
+  margin-bottom: 2rem;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 4.25rem;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.header__content h1 span {
+  color: var(--primary-color);
+}
+
+.header__content .section__description {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.header__btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.header__btns a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.header__btns a span {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.header__btns a:hover {
+  color: var(--primary-color);
+}
+
+.stats__container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.stats__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.stats__card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.stats__card p {
+  font-size: 1.2rem;
+  color: var(--text-dark);
 }
