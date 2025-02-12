@@ -1,11 +1,14 @@
 <?php get_header(); ?>
 
-    <main>
+    <section class="section__container">
         <?php while(have_posts()) : the_post(); ?>
-            <?php the_post_thumbnail('medium'); ?>
-            <h1><?php the_title(); ?></h1>
-            <?php the_content(); ?>
+            <div>
+                <h1 class="section__header"><?php the_title(); ?></h1>
+                <div class="article__content">
+                    <?php the_content(); ?>
+                </div>
+            </div>
         <?php endwhile; ?>
-    </main>
+    </section>
 
 <?php get_footer(); ?>
