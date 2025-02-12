@@ -7,11 +7,11 @@ Version: 0.1
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
-  --primary-color: #0db75f;
-  --primary-color-dark: #0c9a51;
-  --text-dark: #030712;
-  --text-light: #6b7280;
-  --extra-light: #d1d5db;
+  --primary-color: #00A78E; 
+  --primary-color-dark: #00806D; 
+  --text-dark: #222222;
+  --text-light: #4B5563; 
+  --extra-light: #E5E7EB;
   --white: #ffffff;
   --max-width: 1200px;
 }
@@ -715,3 +715,51 @@ nav {
 }
 
 /*Portfolio*/
+
+.work-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+}
+
+.work {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.work img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.5s; 
+}
+
+.layer {
+  width: 100%;
+  height: 0;
+  background: linear-gradient(rgba(0,0,0,0.6), var(--primary-color-dark)); 
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  font-size: 14px;
+  transition: height 0.5s;
+}
+
+.work:hover img {
+  transform: scale(1.1);
+}
+
+.work:hover .layer {
+  height: 100%;
+}
