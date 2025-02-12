@@ -1,9 +1,9 @@
 <?php  
 /*
 Plugin Name: GitHub Feed
-Description: GitHub Feed est un plugin WordPress qui permet d'afficher dynamiquement les derniers commits d’un projet GitHub directement sur les pages ou articles d'un site. Il utilise l’API GitHub pour récupérer les informations des dépôts et les affiche sous forme de liste interactive.
+Description: Plugin WordPress permettant d'afficher dynamiquement les derniers commits d’un projet GitHub via un shortcode.
 Author: Karl-William Couturier
-Version: 1.1
+Version: 1.2
 */
 
 function fetch_github_commits() {
@@ -29,4 +29,22 @@ function fetch_github_commits() {
 }
 add_action('wp_ajax_fetch_github_commits', 'fetch_github_commits');
 add_action('wp_ajax_nopriv_fetch_github_commits', 'fetch_github_commits');
-?>
+
+function github_feed_shortcode($atts) {
+    $atts = shortcode_atts(array(
+        'repo' => ''
+    ), $atts);
+
+    if (empty($atts['repo'])) {
+        return '<p>Aucun dépôt GitHub spécifié.</p>';
+    }
+
+    return '<div id="github-feed" data-repo="' . esc_attr($atts['repo']) . '"></div>';
+}
+add_shortcode('github_feed', 'github_feed_shortcode');
+
+function github_feed_enqueue_scripts() {
+    wp_enqueue_script('github-feed-script', plugins_url('github-feed.js', __FILE__), array('jquery'), null, true);
+    wp_localize_script('github-feed-script', 'githubFeed', array('ajax_url' => admin_url('admin-ajax.php')));
+}
+add_action('wp_enqueue_scripts', 'github_feed_enqueue_scripts');
